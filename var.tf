@@ -40,12 +40,12 @@ variable "builder_size" {
 
 variable "env_keys" {
   description = "Array of env var keys"
-  default     = []
+  default     = ["TF_AUTHOR"]
 }
 
 variable "env_vals" {
   description = "Array of env var vals"
-  default     = []
+  default     = ["rms1000watt"]
 }
 
 variable "builder_image" {

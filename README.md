@@ -39,7 +39,7 @@ module "codebuild" {
   builder_image = "" // optional: (default: "aws/codebuild/docker:17.09.0") See: https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html for more details
 
   // Github specific (must define github_repo if building from github)
-  github_repo        = ""  // optional: (default: "")
+  github_repo        = "" // optional: (default: "")
   github_clone_depth = "" // optional: (default: "1")
 }
 ```
