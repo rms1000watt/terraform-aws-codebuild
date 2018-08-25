@@ -25,7 +25,10 @@ variable "project_description" {
 
 variable "tags" {
   description = "Tags for the codebuild project"
-  default     = {}
+
+  default {
+    Author = "rms1000watt"
+  }
 }
 
 variable "build_timeout" {

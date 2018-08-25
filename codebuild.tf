@@ -1,7 +1,4 @@
-// TODO: Other iterations
-// resource "aws_codebuild_project" "github_ec2"
-
-resource "aws_codebuild_project" "github_docker" {
+resource "aws_codebuild_project" "github" {
   name          = "${local.project_name}"
   description   = "${var.project_description}"
   build_timeout = "${var.build_timeout}"
@@ -12,6 +9,7 @@ resource "aws_codebuild_project" "github_docker" {
     type            = "GITHUB"
     location        = "${var.github_repo}"
     git_clone_depth = "${var.github_clone_depth}"
+    buildspec       = "${var.build_spec}"
   }
 
   artifacts {
@@ -19,9 +17,10 @@ resource "aws_codebuild_project" "github_docker" {
   }
 
   environment {
-    compute_type = "${local.compute_type}"
-    image        = "${var.builder_image}"
-    type         = "LINUX_CONTAINER"
+    compute_type    = "${local.compute_type}"
+    image           = "${var.builder_image}"
+    type            = "LINUX_CONTAINER"
+    privileged_mode = true
 
     environment_variable {
       name  = "${local.env_key_0}"
@@ -74,5 +73,5 @@ resource "aws_codebuild_project" "github_docker" {
     }
   }
 
-  count = "${local.github_count + local.docker_count == 2 ? 1 : 0}"
+  count = "${local.github_count}"
 }

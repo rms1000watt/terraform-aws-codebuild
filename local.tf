@@ -3,7 +3,7 @@ locals {
   path_root_len  = "${length(local.path_root_list)}"
   parent_dir     = "${element(local.path_root_list, local.path_root_len - 1)}"
 
-  zeros = ["", "", "", "", "", "", "", "", "", ""]
+  zeros = ["NIL0", "NIL1", "NIL2", "NIL3", "NIL4", "NIL5", "NIL6", "NIL7", "NIL8", "NIL9"]
 
   compute_type_map {
     small  = "BUILD_GENERAL1_SMALL"

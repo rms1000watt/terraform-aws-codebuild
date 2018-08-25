@@ -1,3 +1,3 @@
-output "github_docker_id" {
-  value = "${aws_codebuild_project.github_docker.*.id}"
+output "github_id" {
+  value = "${aws_codebuild_project.github.*.id}"
 }
