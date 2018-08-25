@@ -8,6 +8,7 @@ Terraform module to deploy Codebuild
 
 - [Usage](#usage)
 - [Options](#options)
+- [TODO](#todo)
 
 ## Usage
 
@@ -20,7 +21,6 @@ module "codebuild" {
   github_repo = "https://github.com/rms1000watt/dummy-golang-project.git"
 }
 ```
-
 
 ## Options
 
@@ -43,3 +43,8 @@ module "codebuild" {
   github_clone_depth = "" // optional: (default: "1")
 }
 ```
+
+## TODO
+
+- [ ] Allow user to overwrite policy
+- [ ] Intergrate with CodePipeline (CodeDeploy) [Cloud Posse example](https://github.com/cloudposse/terraform-aws-ecs-codepipeline/blob/master/main.tf#L192-L259)
