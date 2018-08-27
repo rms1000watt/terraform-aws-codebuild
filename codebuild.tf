@@ -2,7 +2,7 @@ resource "aws_codebuild_project" "github" {
   name          = "${local.project_name}"
   description   = "${var.project_description}"
   build_timeout = "${var.build_timeout}"
-  service_role  = "${aws_iam_role.0.arn}"
+  service_role  = "${local.builder_role_arn}"
   tags          = "${var.tags}"
 
   source {
@@ -13,7 +13,7 @@ resource "aws_codebuild_project" "github" {
   }
 
   artifacts {
-    type = "NO_ARTIFACTS"
+    type = "${var.artifacts_type}"
   }
 
   environment {

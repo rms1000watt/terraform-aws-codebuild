@@ -3,7 +3,7 @@ locals {
   path_root_len  = "${length(local.path_root_list)}"
   parent_dir     = "${element(local.path_root_list, local.path_root_len - 1)}"
 
-  zeros = ["NIL0", "NIL1", "NIL2", "NIL3", "NIL4", "NIL5", "NIL6", "NIL7", "NIL8", "NIL9"]
+  zeros = ["___1", "___2", "___3", "___4", "___5", "___6", "___7", "___8", "___9", "___10"]
 
   compute_type_map {
     small  = "BUILD_GENERAL1_SMALL"
@@ -13,8 +13,9 @@ locals {
 }
 
 locals {
-  project_name = "${var.project_name != "" ? var.project_name : local.parent_dir}"
-  compute_type = "${lookup(local.compute_type_map, var.builder_size)}"
+  project_name     = "${var.project_name != "" ? var.project_name : local.parent_dir}"
+  compute_type     = "${lookup(local.compute_type_map, var.builder_size)}"
+  builder_role_arn = "${var.builder_role_arn != "" ? var.builder_role_arn : aws_iam_role.0.arn }"
 
   github_count = "${var.github_repo != "" ? 1 : 0}"
 

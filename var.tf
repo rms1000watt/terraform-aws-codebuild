@@ -43,15 +43,25 @@ variable "builder_size" {
 
 variable "env_keys" {
   description = "Array of env var keys"
-  default     = [""]
+  default     = ["___0"]
 }
 
 variable "env_vals" {
   description = "Array of env var vals"
-  default     = [""]
+  default     = ["___0"]
+}
+
+variable "builder_role_arn" {
+  description = "Optional Role arn to override for the builder container"
+  default     = ""
 }
 
 variable "builder_image" {
   description = "Docker image for the builder container"
   default     = "aws/codebuild/docker:17.09.0"
+}
+
+variable "artifacts_type" {
+  description = "Type of artifacts (either: NO_ARTIFACTS or CODEPIPELINE)"
+  default     = "NO_ARTIFACTS"
 }
