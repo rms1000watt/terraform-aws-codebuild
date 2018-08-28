@@ -1,4 +1,4 @@
-# Github
+# Dummy Golang Project
 
 ## Introduction
 
