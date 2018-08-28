@@ -15,7 +15,7 @@ locals {
 locals {
   project_name     = "${var.project_name != "" ? var.project_name : local.parent_dir}"
   compute_type     = "${lookup(local.compute_type_map, var.builder_size)}"
-  builder_role_arn = "${var.builder_role_arn != "" ? var.builder_role_arn : aws_iam_role.0.arn }"
+  builder_role_arn = "${var.builder_role_arn != "" ? var.builder_role_arn : aws_iam_role.0.arn}"
 
   github_count = "${var.github_repo != "" ? 1 : 0}"
 
