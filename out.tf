@@ -1,3 +1,3 @@
-output "github_id" {
-  value = "${aws_codebuild_project.github.*.id}"
+output "id" {
+  value = "${local.out_id[0]}"
 }

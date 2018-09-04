@@ -44,4 +44,6 @@ locals {
   github_repo_count = "${var.github_repo != "" ? 1 : 0}"
   github_vpc_count  = "${signum(length(var.vpc_id)) + signum(length(var.subnets)) + signum(length(var.security_groups)) + local.github_repo_count == 4 ? 1 : 0}"
   github_count      = "${var.github_repo != "" && local.github_vpc_count == 0 ? 1 : 0}"
+
+  out_id = "${coalescelist(aws_codebuild_project.github.*.id, aws_codebuild_project.github_vpc.*.id)}"
 }
