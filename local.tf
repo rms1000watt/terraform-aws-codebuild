@@ -42,4 +42,6 @@ locals {
   env_val_7 = "${local.env_vals[7]}"
   env_val_8 = "${local.env_vals[8]}"
   env_val_9 = "${local.env_vals[9]}"
+
+  github_vpc_count = "${signum(length(var.vpc_id)) + signum(length(var.subnets)) + signum(length(var.security_groups)) + local.github_count == 4 ? 1 : 0}"
 }

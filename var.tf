@@ -65,3 +65,18 @@ variable "artifacts_type" {
   description = "Type of artifacts (either: NO_ARTIFACTS or CODEPIPELINE)"
   default     = "NO_ARTIFACTS"
 }
+
+variable "vpc_id" {
+  description = "ID of VPC to run within"
+  default     = ""
+}
+
+variable "subnets" {
+  description = "IDs of subnets to run within"
+  default     = []
+}
+
+variable "security_groups" {
+  description = "IDs of security groups to attach"
+  default     = []
+}
