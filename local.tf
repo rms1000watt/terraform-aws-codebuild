@@ -17,8 +17,6 @@ locals {
   compute_type     = "${lookup(local.compute_type_map, var.builder_size)}"
   builder_role_arn = "${var.builder_role_arn != "" ? var.builder_role_arn : aws_iam_role.0.arn}"
 
-  github_count = "${var.github_repo != "" ? 1 : 0}"
-
   env_keys  = "${concat(var.env_keys, local.zeros)}"
   env_key_0 = "${local.env_keys[0]}"
   env_key_1 = "${local.env_keys[1]}"
@@ -43,5 +41,7 @@ locals {
   env_val_8 = "${local.env_vals[8]}"
   env_val_9 = "${local.env_vals[9]}"
 
-  github_vpc_count = "${signum(length(var.vpc_id)) + signum(length(var.subnets)) + signum(length(var.security_groups)) + local.github_count == 4 ? 1 : 0}"
+  github_repo_count = "${var.github_repo != "" ? 1 : 0}"
+  github_vpc_count  = "${signum(length(var.vpc_id)) + signum(length(var.subnets)) + signum(length(var.security_groups)) + local.github_repo_count == 4 ? 1 : 0}"
+  github_count      = "${var.github_repo != "" && local.github_vpc_count == 0 ? 1 : 0}"
 }
