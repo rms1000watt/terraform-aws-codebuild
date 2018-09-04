@@ -7,3 +7,7 @@ module "codebuild" {
 
   github_repo = "https://github.com/rms1000watt/dummy-golang-project.git"
 }
+
+output "id" {
+  value = "${module.codebuild.id}"
+}
